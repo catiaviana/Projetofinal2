@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Components;
+using Microsoft.EntityFrameworkCore;
+using ProjetoFinal.Models;
 using System.ComponentModel.DataAnnotations;
 
 namespace ProjetoFinal.Models
@@ -10,7 +13,11 @@ namespace ProjetoFinal.Models
         [Required]
         public string Description { get; set; }
 
-        public virtual ApplicationBuilder User { get; set; }
+        [Required]
+        public virtual ApplicationUser User { get; set; }
 
+        [Required]
+        [DeleteBehavior(DeleteBehavior.NoAction)]
+        public virtual Recipe Recipe { get; set; }
     }
 }

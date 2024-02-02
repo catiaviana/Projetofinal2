@@ -1,4 +1,6 @@
+using ProjetoFinal.Models;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjetoFinal.Models
 {
@@ -11,8 +13,10 @@ namespace ProjetoFinal.Models
         public string Name { get; set; }
 
         [Required]
-        [StringLength(50)]
         public string Quantity { get; set; }
 
+        [Required]
+        public Guid RecipeId { get; set; }
+        public virtual Recipe? Recipe { get; set; }
     }
 }

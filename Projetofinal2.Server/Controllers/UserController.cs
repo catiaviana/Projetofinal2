@@ -10,7 +10,7 @@ namespace ProjetoFinal.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("api/[Controller]")]
+    [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
@@ -18,16 +18,7 @@ namespace ProjetoFinal.Controllers
         public UserController(ApplicationDbContext context)
         {
             _context = context;
-
         }
-
-        [HttpGet("token")]
-        [AllowAnonymous]
-        public async Task<ActionResult<string>> GetLoginToken()
-        {
-            return await HttpContext.GetTokenAsync("access_token");
-        }
-
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ApplicationUser>>> GetUser()
@@ -70,12 +61,10 @@ namespace ProjetoFinal.Controllers
             {
                 await _context.SaveChangesAsync();
             }
-
             catch (DbUpdateConcurrencyException)
             {
                 if (!UserExists(id))
                 {
-
                     return NotFound();
                 }
                 else
@@ -91,7 +80,5 @@ namespace ProjetoFinal.Controllers
         {
             return (_context.Users?.Any(e => e.Id == id)).GetValueOrDefault();
         }
-
     }
-
 }

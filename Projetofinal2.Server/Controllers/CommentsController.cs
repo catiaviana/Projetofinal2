@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using ProjetoFinal.Data;
 using ProjetoFinal.Models;
 
-namespace ProjectoFinal.Controllers
+namespace ProjetoFinal.Controllers
 {
     [Authorize]
     [Route("api/[controller]")]
@@ -94,7 +94,7 @@ namespace ProjectoFinal.Controllers
             {
                 return Problem("Entity set 'ApplicationDbContext.Comments'  is null.");
             }
-            _context.Comments.Add(comments);
+            Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry<Comments> entityEntry = _context.Comments.Add(comments);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetComments", new { id = comments.Id }, comments);

@@ -4,17 +4,27 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using ProjetoFinal.Models;
+using Projetofinal2.Server;
 using System.Reflection.Emit;
-
 
 namespace ProjetoFinal.Data
 {
     public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
     {
-        public ApplicationDbContext(DbContextOptions options, IOptions<OperationalStoreOptions> operationalStoreOptions)
-           : base(options, operationalStoreOptions)
+        private static string[] Summaries = new[]
         {
+        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        };
 
+        public ApplicationDbContext(DbContextOptions options, IOptions<OperationalStoreOptions> operationalStoreOptions)
+            : base(options, operationalStoreOptions)
+        {
+            WeatherForecasts = Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            {
+                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+            }).ToList();
         }
 
         public virtual DbSet<Recipe> Recipes { get; set; } = default!;
@@ -24,6 +34,8 @@ namespace ProjetoFinal.Data
         public virtual DbSet<Comments> Comments { get; set; } = default!;
 
         public virtual DbSet<Ingredient> Ingredients { get; set; } = default!;
+
+        public virtual ICollection<WeatherForecast> WeatherForecasts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -40,10 +52,7 @@ namespace ProjetoFinal.Data
                 PasswordHash = hasher.HashPassword(null, "Admin123#"),
                 SecurityStamp = string.Empty,
                 IsAdmin = true
-
             });
-
-
         }
     }
 }
