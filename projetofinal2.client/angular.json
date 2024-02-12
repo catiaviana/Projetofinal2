@@ -72,7 +72,8 @@
               "buildTarget": "projetofinal2.client:build:production"
             },
             "development": {
-              "buildTarget": "projetofinal2.client:build:development"
+              "buildTarget": "projetofinal2.client:build:development",
+              "port": 4200
             }
           },
           "defaultConfiguration": "development",
@@ -108,5 +109,8 @@
       }
     }
   },
-  "version": 1
+  "version": 1,
+  "cli": {
+    "analytics": false
+  }
 }
