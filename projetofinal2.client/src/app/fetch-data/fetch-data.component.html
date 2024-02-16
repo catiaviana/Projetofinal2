@@ -1,0 +1,44 @@
+<h1 id="tableLabel">Weather forecast</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!forecasts?.length"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="forecasts.length">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Temp. (C)</th>
+      <th>Temp. (F)</th>
+      <th>Summary</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let forecast of forecasts">
+      <td>{{ forecast.date }}</td>
+      <td>{{ forecast.temperatureC }}</td>
+      <td>{{ forecast.temperatureF }}</td>
+      <td>{{ forecast.summary }}</td>
+      <td><button (click)="formData = forecast; edit = true;">Edit</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<form (ngSubmit)="submitForm()" #forecastForm="ngForm">
+  <label>Date:</label>
+  <input type="date" [(ngModel)]="formData.date" name="date">
+
+  <label>Temperature (Celsius):</label>
+  <input type="number" [(ngModel)]="formData.temperatureC" name="temperatureC">
+
+  <label>Temperature (Fahrenheit):</label>
+  <input type="number" [(ngModel)]="formData.temperatureF" name="temperatureF">
+
+  <label>Summary:</label>
+  <textarea [(ngModel)]="formData.summary" name="summary"></textarea>
+
+  <input type="hidden" [(ngModel)]="formData.id" name="id" />
+
+  <button type="submit">Submit</button>
+</form>
