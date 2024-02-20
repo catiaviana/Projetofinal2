@@ -23,7 +23,6 @@
     "@angular/platform-browser-dynamic": "^17.1.2",
     "@angular/platform-server": "^17.1.2",
     "@angular/router": "^17.1.2",
-    "@nguniversal/module-map-ngfactory-loader": "^7.0.2",
     "bootstrap": "^5.2.3",
     "jquery": "^3.6.3",
     "oidc-client": "^1.11.5",
