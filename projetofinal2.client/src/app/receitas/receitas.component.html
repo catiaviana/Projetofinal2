@@ -1,26 +1,55 @@
-<p>receitas works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipes</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="receitas.component.css">
+</head>
+<body>
+  <div class="container">
+  <h1>Submit your recipe here</h1>
+  </div>
+  <div class="container mt-5">
+    <form (ngSubmit)="submitForm()" class="col-md-6 mx-auto">
+      <input type="hidden" [(ngModel)]="recipeData.id" name="id" />
+      <input type="hidden" [(ngModel)]="recipeData.userid" name="userid" />
+    
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" [(ngModel)]="recipeData.name" name="name" class="form-control" />
+      </div>
+    
+      <div class="form-group">
+        <label>Description</label>
+        <input type="text" [(ngModel)]="recipeData.description" name="description" class="form-control" />
+      </div>
+    
+      <div class="form-group">
+        <label>Title</label>
+        <input type="text" [(ngModel)]="recipeData.title" name="title" class="form-control" />
+      </div>
+    
+      <div class="form-group">
+        <label>Category</label>
+        <input type="number" [(ngModel)]="recipeData.category" name="category" class="form-control" />
+      </div>
+    
+      <div class="form-group">
+        <label>Difficulty</label>
+        <input type="number" [(ngModel)]="recipeData.difficulty" name="difficulty" class="form-control" />
+      </div>
+    
+      <div class="form-group">
+        <label>Duration</label>
+        <input type="number" [(ngModel)]="recipeData.duration" name="duration" class="form-control" />
+      </div>
+    
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+  </div>
+</body>
+</html>
 
-<form (ngSubmit)="submitForm()">
-  <input type="hidden" [(ngModel)]="recipeData.id" name="id" />
-  <input type="hidden" [(ngModel)]="recipeData.userid" name="userid" />
 
-  <label>Name</label>
-  <input type="text" [(ngModel)]="recipeData.name" name="name" />
-
-  <label>Description</label>
-  <input type="text" [(ngModel)]="recipeData.description" name="description" />
-
-  <label>Title</label>
-  <input type="text" [(ngModel)]="recipeData.title" name="title" />
-
-  <label>Category</label>
-  <input type="number" [(ngModel)]="recipeData.category" name="category" />
-
-  <label>Difficulty</label>
-  <input type="number" [(ngModel)]="recipeData.difficulty" name="difficulty" />
-
-  <label>Duration</label>
-  <input type="number" [(ngModel)]="recipeData.duration" name="duration" />
-
-  <input type="submit" name="Save" />
-</form>

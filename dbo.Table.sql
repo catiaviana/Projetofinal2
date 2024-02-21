@@ -1,0 +1,4 @@
+﻿CREATE TABLE Keys
+(
+	[Id] INT NOT NULL PRIMARY KEY
+)
