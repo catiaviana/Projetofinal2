@@ -16,6 +16,7 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
 import { ReceitasComponent } from './receitas/receitas.component';
 import { UsersComponent } from './users/users.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,7 @@ import { UsersComponent } from './users/users.component';
     CounterComponent,
     FetchDataComponent,
     ReceitasComponent,
-    UsersComponent
+    UsersComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

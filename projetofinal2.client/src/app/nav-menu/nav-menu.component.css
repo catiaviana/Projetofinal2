@@ -1,18 +1,31 @@
+/*corresponde à barra total do menu de navegação*/
+.container{
+  background-color: grey;
+}
+/*corresponde ao componente do nome/logotico da página, neste casa: Cooking in*/
 a.navbar-brand {
-    white-space: normal;
-    text-align: center;
-    word-break: break-all;
-  }
-  
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+  color: red;
+  font-size: 30px;
+}
+/*para criar layout responsivo*/
+@media (min-width: 768px) {
   html {
-    font-size: 14px;
+    font-size: 16px;
   }
-  @media (min-width: 768px) {
-    html {
-      font-size: 16px;
-    }
-  }
-  
-  .box-shadow {
-    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-  }
+}
+/*aqui sao estilizadas as letras do menu de navegação, excluindo o nome do projeto e o register/login*/
+.nav-link {
+  font-size: 20px;
+  color: black;
+  font-weight: bold;
+  padding: 10px;
+  margin-right: 20px;
+}
+/*corresponde ao "RESGISTER/LOGIN"*/
+app-login-menu{
+  color: rgb(160, 19, 19);
+  font-size: 20px;
+}

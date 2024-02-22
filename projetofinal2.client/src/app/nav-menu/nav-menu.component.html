@@ -1,9 +1,10 @@
 <header>
-  <nav
+  <nav 
     class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
   >
     <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']">ProjetoFinal</a>
+<!--link que funciona como logotipo ou nome da barra de navegação, quando clicado, leva o user de volta à pagina inicial('/')-->
+      <a class="navbar-brand" [routerLink]="['/']">Cooking in</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -15,11 +16,13 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
+<!--aqui estao os itens da barra de navegaçao que serao mostrados ou ocultados quando o botao de alternancia for clicado-->
       <div
         class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
         [ngClass]="{ show: isExpanded }"
       >
-        <ul class="navbar-nav flex-grow">
+<!-- lista nao ordenada que contem os itens de navegação-->
+       <ul class="navbar-nav flex-grow">
           <li class="nav-item"
               [routerLinkActive]="['link-active']"
               [routerLinkActiveOptions]="{ exact: true }">
@@ -34,11 +37,11 @@
           </li>
 
           <li [ngClass]="{ show: isAdmin }" class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/users']">Users</a>
+            <a class="nav-link text-dark" [routerLink]="['/users']">Admin</a>
           </li>
 
           <li [ngClass]="{ show: isAdmin }" class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/recipes']">Recipes</a>
+            <a class="nav-link text-dark" [routerLink]="['/recipes']">Your Recipes</a>
           </li>
         </ul>
         <app-login-menu></app-login-menu>
